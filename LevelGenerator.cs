@@ -9,7 +9,16 @@ public class LevelGenerator : MonoBehaviour
     private List<GameObject> spawnedChunks = new List<GameObject>();
     public float chunkSize = 20f;
     private int chunksAhead = 3;
-    private int lastChunkIndex = -1;
+
+
+    public List<GameObject> movingPlatformChunks;
+    public List<GameObject> rotatingObstacleChunks;
+    public List<GameObject> gapJumpChunks;
+    private int lastChunkType = -1; // Zmienna do śledzenia ostatniego typu chunka
+
+
+
+
 
     void Start()
     {
@@ -36,32 +45,112 @@ public class LevelGenerator : MonoBehaviour
 
     void SpawnChunk()
     {
-        int randomIndex;
-        do
+
+
+
+
+        List<GameObject> availableChunks = new List<GameObject>(levelChunks);
+        int currentChunkType;
+
+
+        //zapewniamy różnorodność generowanych chunków, zapobiegając powtórzeniom tych samych chunków specjalnych pod rząd.
+
+         do
+         {
+
+              currentChunkType = Random.Range(0, 4);
+
+          }
+           while (currentChunkType == lastChunkType && availableChunks.Count >1);
+
+
+          lastChunkType = currentChunkType;
+
+
+
+
+
+
+
+           // Dodawanie chunków z mniejszą szansą na pojawienie się
+
+           if (currentChunkType == 1 && movingPlatformChunks.Count > 0)
+           {
+
+
+              availableChunks.AddRange(movingPlatformChunks);
+
+           }
+
+
+         else  if (currentChunkType == 2 && rotatingObstacleChunks.Count > 0)
+         {
+
+                availableChunks.AddRange(rotatingObstacleChunks);
+
+
+         }
+
+        else  if (currentChunkType == 3 && gapJumpChunks.Count > 0)
+
+
         {
-            randomIndex = Random.Range(0, levelChunks.Count);
-        } while (randomIndex == lastChunkIndex && levelChunks.Count > 1);
 
-        lastChunkIndex = randomIndex;
 
-        GameObject newChunk = Instantiate(levelChunks[randomIndex], transform);
+              availableChunks.AddRange(gapJumpChunks);
+
+
+
+
+
+         }
+
+
+         // Debug.Log(availableChunks.Count);
+            int randomIndex = Random.Range(0, availableChunks.Count);
+
+
+        GameObject newChunk = Instantiate(availableChunks[randomIndex], transform);
 
         if (spawnedChunks.Count > 0)
         {
             Vector3 lastChunkPos = spawnedChunks[spawnedChunks.Count - 1].transform.position;
             newChunk.transform.position = lastChunkPos + new Vector3(0f, 0f, chunkSize);
-        }
-        else
-        {
-            newChunk.transform.position = Vector3.zero;
+
+
         }
 
-        spawnedChunks.Add(newChunk);
+
+
+        else
+
+        {
+
+
+            newChunk.transform.position = Vector3.zero;
+
+
+        }
+
+
+
+         spawnedChunks.Add(newChunk);
+
+
+
+
+
     }
+
+
 
     void DespawnChunk()
     {
         Destroy(spawnedChunks[0]);
         spawnedChunks.RemoveAt(0);
     }
+
+
+
+
 }
