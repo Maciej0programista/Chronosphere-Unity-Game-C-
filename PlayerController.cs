@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float groundCheckDistance = 0.1f;
     public LayerMask groundLayer;
     private bool isGrounded;
+    private int jumpsRemaining = 2;
 
     void Start()
     {
@@ -25,28 +26,30 @@ public class PlayerController : MonoBehaviour
         {
             Dash();
         }
+
+        if (isGrounded)
+        {
+            jumpsRemaining = 2;
+        }
+
+        if (Input.GetButtonDown("Jump") && jumpsRemaining > 0)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            jumpsRemaining--;
+        }
     }
 
     void FixedUpdate()
     {
-        // Grawitacja sferyczna
         Vector3 gravityDirection = (planetCenter.position - transform.position).normalized;
         rb.AddForce(gravityDirection * gravityForce);
 
-        // Sprawdzenie, czy gracz jest na ziemi
         isGrounded = Physics.CheckSphere(transform.position - new Vector3(0, 0.5f, 0), groundCheckDistance, groundLayer);
 
-        // Ruch
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(horizontal, 0f, vertical) * speed;
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
-
-        // Skok
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
     }
 
     void Dash()
