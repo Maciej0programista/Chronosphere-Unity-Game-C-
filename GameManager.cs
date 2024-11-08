@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI; // Dodane dla obsługi UI
 
 public class GameManager : MonoBehaviour
 {
@@ -11,15 +12,52 @@ public class GameManager : MonoBehaviour
     private bool isZoomed = false;
     public enum CameraMode { Follow, Static };
     public CameraMode currentCameraMode = CameraMode.Follow;
-    public Vector3 staticCameraPosition = new Vector3(0, 10, -20); // Przykładowa pozycja statycznej kamery
+    public Vector3 staticCameraPosition = new Vector3(0, 10, -20); 
     public Transform playerTransform;
     private bool isPaused = false;
+    private Vector3 cameraOffset;
+
+
+    public Text scoreText; // Referencja do tekstu wyświetlającego wynik
+    private int score = 0;
+
+    public static GameManager instance; // Singleton dla łatwego dostępu
+
+
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
     void Start()
     {
         cameraOffset = mainCamera.transform.position - playerTransform.position;
+
+        if (scoreText!= null) { //sprawdzanie czy referencja została ustawiona
+            scoreText.text = "Wynik: " + score; 
+
+
+        }
+         else
+        {
+            Debug.LogError("Referencja do scoreText nie jest ustawiona w inspektorze!");
+
+
+
+        }
+
     }
+
+
 
     void Update()
     {
@@ -33,7 +71,7 @@ public class GameManager : MonoBehaviour
             ToggleCameraMode();
         }
 
-        if (Input.GetButtonDown("Cancel")) // Domyślnie Escape
+        if (Input.GetButtonDown("Cancel")) 
         {
             TogglePauseMenu();
         }
@@ -75,7 +113,7 @@ public class GameManager : MonoBehaviour
     public void CloseSettingsMenu()
     {
         settingsMenu.SetActive(false);
-        pauseMenu.SetActive(true); // Jeśli wracamy z ustawień do pauzy
+        pauseMenu.SetActive(true); 
     }
 
     void ToggleZoom()
@@ -93,7 +131,6 @@ public class GameManager : MonoBehaviour
         {
             mainCamera.transform.position = staticCameraPosition;
         } else {
-            // Przywróć offset kamery, gdy wracamy do trybu Follow
             cameraOffset = mainCamera.transform.position - playerTransform.position;
         }
     }
@@ -103,5 +140,20 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    private Vector3 cameraOffset;
+    public void AddScore(int points)
+    {
+        score += points;
+
+        if (scoreText != null)
+        {
+
+            scoreText.text = "Wynik: " + score;
+        }
+
+
+
+    }
+
+
+
 }
