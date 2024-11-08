@@ -1,77 +1,77 @@
 # Chronosphere - Dynamiczna gra platformowa 3D
 
-🚀 Zanurz się w  świecie Chronosphere,  innowacyjnej gry platformowej 3D,  która  łączy  wymagającą  rozgrywkę  z  fascynującą  mechaniką  manipulacji  czasem i grawitacją sferyczną.  Wciel  się w  Chrononautu,  tajemniczego  podróżnika  w  czasie, i  wyrusz na  wyprawę  przez  niebezpieczne  i  zagadkowe  poziomy.
+🚀 Zanurz się w pulsującym energią świecie Chronosphere! Ta innowacyjna gra platformowa 3D łączy wymagającą rozgrywkę z fascynującą mechaniką manipulacji czasem, grawitacją sferyczną i dynamicznie generowanymi poziomami. Wciel się w Chrononautu i wyrusz na niezapomnianą przygodę.
 
-🌌 Wykorzystaj  swoje  moce  kontrolowania  czasu, aby  pokonywać  przeszkody,  rozwiązywać  łamigłówki  i  odkrywać  tajemnice  Chronosphere.  Czy  jesteś  gotowy  na  wyzwanie?
+🌌 Wykorzystaj swoje moce kontrolowania czasu, staw czoła nowym przeciwnikom, zbieraj punkty i doskonal swoje umiejętności, aby odkryć tajemnice Chronosphere.
 
+## ✨ Wersja 1.2 - Chrononaut kontra Łowcy Czasu!
 
-
-## Wersja 1.1 ✨
-
-Ta  wersja  zapewnia  solidny  fundament  kodu  C#,  gotowy  do  implementacji  i  rozbudowy  w  silniku  Unity.  Zawiera  wszystkie  kluczowe  mechaniki  gry,  od  dynamicznego  ruchu  gracza,  po  fascynującą  manipulację  czasem.
+Aktualizacja 1.2 to zastrzyk świeżej rozgrywki!  Nowi przeciwnicy, system punktacji, ulepszony ruch i rozbudowane poziomy czekają na Ciebie.  Przygotuj się na dynamiczne starcia i sprawdź swoje umiejętności.
 
 
-## Funkcjonalności 🚀
+## 🚀 Nowe Funkcjonalności (1.2):
 
-* **🕰️ Manipulacja czasem:**
-    * **Spowolnienie czasu (Klawisz T):**  Zyskaj  cenne  sekundy,  spowalniając  upływ  czasu.  Idealne  do  precyzyjnych  skoków  i  uniknięcia  śmiertelnych  pułapek.  Pamiętaj,  że  moc  ta  czerpie  z  Twojej  ograniczonej  energii  czasowej!
-    * **Cofanie czasu (Klawisz R):**  Cofnij  się  w  czasie,  aby  naprawić  błędy  lub  wypróbować  inne  rozwiązanie.  Uważaj,  ta  potężna  zdolność  pożera  dużo  energii!
+* **👾 Przeciwnicy:**  Dwa nowe typy przeciwników:
+    * **Strażnik (Common Enemy):** Patroluje, atakuje w zwarciu.
+    * **Łowca (Mini-boss):** Atak dystansowy, teleportacja.
 
-* **⚡ Energia czasowa:**  Twój  największy  atut,  ale  i  ograniczenie.  Energia  ta  regeneruje  się  z  czasem,  więc  planuj  swoje  ruchy  mądrze!
+* **⭐ System Punktacji:** Zdobywaj punkty za pokonywanie przeciwników (100 za Strażnika, 500 za Łowcę). Wynik w lewym górnym rogu ekranu.
 
-* **🌍 Grawitacja sferyczna:**  Przygotuj  się  na  zakrzywienie  rzeczywistości!  Grawitacja  przyciąga  Cię  do  powierzchni  planety,  niezależnie  od  jej  orientacji.  To  dodaje  zupełnie  nowy  wymiar  do  klasycznej  platformówki.
+* **🤸 Podwójny Skok:**  Dodatkowy skok w powietrzu (Spacja).
 
-* **🏃 Ruch gracza:**
-    * **Poruszanie się (W, A, S, D):**  Eksploruj  świat  Chronosphere  z  pełną  swobodą  ruchu.
-    * **Skok (Spacja):**  Przeskakuj  przepaście,  osiągaj  wyższe  platformy  i  unikaj  niebezpieczeństw.
-    * **Dash (Shift):**  Szybki  zryw  w  przód  pozwoli  Ci  uniknąć  pułapek  i  dotrzeć  do  niedostępnych  miejsc.  Pamiętaj  o  cooldownie!
+* **⚙️ Rozszerzone Generowanie Poziomów:**
+    * Nowe chunków: ruchoma platforma, obracające się przeszkody, skoki przez przepaść.
+    * Ulepszony algorytm generowania dla większej różnorodności.
 
-
-* **⚙️ Generowanie poziomów:**  Nieskończona  zabawa  dzięki  proceduralnie  generowanym  poziomom.  Każda  rozgrywka  będzie  inna!
+* **🛠️ Optymalizacja:** Object pooling dla chunków i pocisków, redukcja draw calls.
 
 
-## Struktura projektu (C#) 📂
+## 🕰️ Manipulacja Czasem:
 
-Kod  źródłowy  gry  jest  napisany  w  C#  i  składa  się  z  czterech  głównych  plików:
+* **Spowolnienie (T):** Spowalnia czas, kosztuje energię.
+* **Cofanie (R):** Cofnij się w czasie, kosztuje dużo energii.
 
-* **PlayerController.cs:**  Serce  i  dusza  Chrononauty.  Ten  skrypt  kontroluje  jego  ruch,  umiejętności  i  interakcję  ze  światem  gry.
+## ⚡ Energia Czasowa:
 
-* **TimeManager.cs:**  Strażnik  czasu.  Zarządza  manipulacją  czasem  i  pilnuje,  żeby  Chrononaut  nie  wyczerpał  wszystkiej  swojej  energii.
+Regeneruje się z czasem. Używaj mądrze!
 
-* **GameManager.cs:**  Dyrygent  całej  orkiestry.  Odpowiada  za  menu,  ustawienia,  kamerę  i  ogólną  logikę  gry.
+## 🌍 Grawitacja Sferyczna:
 
-* **LevelGenerator.cs:**  Architekt  świata  gry.  Tworzy  nieskończone  poziomy  pełne  wyzwań  i  niespodzianek.
-
-
-## Implementacja w Unity 🛠️
-
-Kod  C#  to  dopiero  początek.  Aby  Chronosphere  ożył,  potrzebuje  Twojej  magii  w  Unity!  Oto,  co  trzeba  zrobić:
-
-1. **🎨 Dodaj  zasoby:**  Modele  3D,  tekstury,  animacje,  dźwięki  -  wszystko,  co  sprawi,  że  gra  będzie  wyglądać  i  brzmieć  fantastycznie.
-2. **🌎 Skonfiguruj  sceny:**  Stwórz  świat  gry,  dodając  obiekty,  oświetlenie  i  teren.
-3. **🧩 Stwórz  prefabrykaty  chunków  poziomu:**  Pozwól  LevelGeneratorowi  wyczarować  nieskończony  poziom.
-4. **🧱 Ustaw  warstwę  "Ground":**  Aby  Chrononaut  wiedział,  gdzie  może  stanąć.
-5. **🪐 Skonfiguruj  planetę  i  centrum  grawitacji:**  Niech  fizyka  zadziała!
-6. **📱 Stwórz  interfejs  użytkownika (UI):**  Menu,  ustawienia,  wskaźniki  -  wszystko,  czego  potrzebuje  gracz.
-7. **🧪 Przetestuj  i  dopracuj  grę:**  Upewnij  się,  że  wszystko  działa  płynnie  i  wygląda  świetnie.
+Grawitacja działa w kierunku centrum planety.
 
 
-## Technologie 💻
+## 📂 Struktura Projektu (C#):
+
+* **PlayerController.cs:** Ruch gracza (podwójny skok).
+* **TimeManager.cs:** Manipulacja czasem.
+* **GameManager.cs:** Menu, ustawienia, kamera, punktacja.
+* **LevelGenerator.cs:** Generowanie poziomów.
+* **EnemyAI.cs:**  AI przeciwników.
+* **Projectile.cs:** Pociski.
+
+
+## 🛠️ Implementacja w Unity - Dla Programisty:
+
+1. **Dodaj zasoby (modele, tekstury, animacje, dźwięki).**  *Pamiętaj o stworzeniu modeli i animacji dla Strażnika i Łowcy,  a także  modelu  pocisku  dla  Łowcy.*
+2. **Skonfiguruj sceny.**  *Dodaj  prefabrykaty przeciwników na  scenie.  Ustaw  punkty  patrolowe  dla  każdego  przeciwnika  w  skrypcie  `EnemyAI`.*  *Skonfiguruj UI, w  tym  tekst  wyświetlający  wynik,  i  przypisz  go  do  zmiennej  `scoreText`  w  skrypcie  `GameManager`.*
+3. **Stwórz prefabrykaty chunków poziomów (w  tym  nowe  chunków  z  1.2).** *Upewnij się, że  prefabrykaty  dla  ruchomych  platform,  obracających  się  przeszkód  i  skoków  przez  przepaść  są  poprawnie  skonfigurowane  z  animacjami/skryptami.*
+4. **Ustaw warstwę "Ground".** *Upewnij  się,  że  wszystkie  obiekty,  po  których  gracz  może  chodzić,  są  przypisane  do  warstwy  "Ground".*
+5. **Skonfiguruj planetę i centrum grawitacji.** *Ustaw  referencję  do  obiektu  reprezentującego  centrum  planety  w  skrypcie  `PlayerController`.*
+6. **Stwórz  prefabrykat  pocisku  i  przypisz  go  do  `projectilePrefab` w  skrypcie  `EnemyAI`  dla  mini-bossa  "Łowca".**
+7. **Dodaj skrypt  `PlayerHealth`  do  gracza  z  metodą  `TakeDamage(int damage)`.** *Ten  skrypt  będzie  odpowiadał  za  odejmowanie  punktów  życia  gracza  po  otrzymaniu  obrażeń.*
+8. **Przetestuj i dopracuj grę.** *Zwróć  szczególną  uwagę  na  balans  gry  (statystyki  przeciwników,  ilość  zdobywanych  punktów)  oraz  płynność  działania.*
+
+
+
+## 💻 Technologie:
 
 * Unity
 * C#
 
+## 📜 Licencja:
 
-## Planowane aktualizacje 🗓️
+MIT License - CatDeveloper
 
-Kod  C#  będzie  regularnie  aktualizowany  (co  miesiąc  lub  dwa),  więc  spodziewaj  się  nowych  funkcji  i  poprawek!
-
-
-## Licencja 📜
-
-Ten projekt jest udostępniany na licencji **MIT**.  Możesz z nim robić, co tylko zechcesz, włącznie z użyciem komercyjnym.  Pamiętaj tylko o  wzmiankowaniu  **CatDeveloper**  jako  autora.  Pełna treść licencji znajduje się w pliku LICENSE.
-
-
-## Kontakt ✉️
+## ✉️ Kontakt:
 
 CatDeveloper
