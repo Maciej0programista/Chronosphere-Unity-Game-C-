@@ -74,4 +74,4 @@ MIT License - CatDeveloper
 
 ## ✉️ Kontakt:
 
-CatDeveloper
+CatDeveloper-bosyjjakub@gmail.com 
